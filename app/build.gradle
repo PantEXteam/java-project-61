@@ -1,0 +1,30 @@
+plugins {
+    //id 'java'
+
+    // Упрощает сборку приложения, также подключает plugin java
+    id 'application'
+
+    // Позволяет проверить наличие новых версий библиотек и плагинов используемых в проекте
+    id 'com.github.ben-manes.versions' version '0.52.0'
+}
+
+group = 'hexlet.code'
+version = '1.0-SNAPSHOT'
+
+// Точка входа в приложение (для плагина application)
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
