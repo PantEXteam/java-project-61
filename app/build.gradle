@@ -6,6 +6,10 @@ plugins {
 
     // Позволяет проверить наличие новых версий библиотек и плагинов используемых в проекте
     id 'com.github.ben-manes.versions' version '0.52.0'
+
+    // Для code style
+    // Пока не отрабатывает
+    //id 'checkstyle'
 }
 
 group = 'hexlet.code'
@@ -28,6 +32,18 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+/* Пока не отработало для проверки кода на чистоту
+checkstyle {
+    toolVersion = '10.23.1'
+    configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+}
+
+//tasks.withType(Checkstyle) {
+//    sourceSets.all {
+//        include it.allSource.srcDirs
+//    }
+//}
+*/
 
 /* !Не подходит для моего проекта, run работает и без этого!
  *
