@@ -1,6 +1,4 @@
-package hexlet.code.games;
-
-import hexlet.code.Cli;
+package hexlet.code;
 
 public class Engine {
     public static String getUserName(String taskText) {
