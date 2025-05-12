@@ -15,4 +15,12 @@ public final class Cli {
 
         return name;
     }
+
+    public static void congratulation(String name) {
+        System.out.println("Congratulations, " + name + "!");
+    }
+
+    public static void taskText(String text) {
+        System.out.println(text);
+    }
 }

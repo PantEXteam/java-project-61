@@ -6,6 +6,7 @@ public class App {
     private static final String[] games = new String[] {
             "1 - Greet",
             "2 - Even",
+            "3 - Calc",
             "0 - Exit",
     };
 
@@ -20,6 +21,10 @@ public class App {
                 break;
             case 2:
                 IsEvenGame.start();
+
+                break;
+            case 3:
+                CalcGame.start();
 
                 break;
             default:

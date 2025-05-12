@@ -8,7 +8,7 @@ public class IsEvenGame {
     public static void start() {
         String name = Cli.greetings();
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Cli.taskText("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int i = 1;
         while (i <= 3) {
@@ -33,7 +33,7 @@ public class IsEvenGame {
             }
         }
 
-        System.out.println("Congratulations, " + name + "!");
+        Cli.congratulation(name);
     }
 
     private static int getNumberForQuestion() {
