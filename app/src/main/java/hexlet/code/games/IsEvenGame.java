@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Cli;
 
 import java.util.Objects;
 import java.util.Random;
@@ -6,31 +8,15 @@ import java.util.Scanner;
 
 public class IsEvenGame {
     public static void start() {
-        String name = Cli.greetings();
-
-        Cli.taskText("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String name = Engine.getUserName("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int i = 1;
         while (i <= 3) {
             int number = getNumberForQuestion();
+            String correctAnswer = isCorrectAnswer(number, "yes") ? "yes" : "no";
             String userAnswer = getUserAnswerByNumber(number);
 
-            if (isCorrectAnswer(number, userAnswer)) {
-                System.out.println("Correct!");
-
-                i++;
-            } else {
-                String correctAnswer =
-                        Objects.equals(userAnswer, "yes") ? "no" : "yes";
-
-                String message = """
-                        '%s' is wrong answer ;(. Correct answer was '%s'.
-                        Let's try again, %s!
-                        """.formatted(userAnswer, correctAnswer, name);
-                System.out.println(message);
-
-                System.exit(0);
-            }
+            i = Engine.getCounterIfCorrectAnswer(correctAnswer, userAnswer, name, i);
         }
 
         Cli.congratulation(name);

@@ -1,35 +1,22 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Objects;
+import hexlet.code.Cli;
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class CalcGame {
     public static void start() {
-        String name = Cli.greetings();
-
-        Cli.taskText("What is the result of the expression?");
+        String name = Engine.getUserName("What is the result of the expression?");
 
         int i = 1;
         while (i <= 3) {
             String expression = getExpressionForQuestion();
-            int expressionResult = getExpressionResult(expression);
-            int userAnswer = getUserAnswerByExpression(expression);
+            String expressionResult = getExpressionResult(expression);
+            String userAnswer = getUserAnswerByExpression(expression);
 
-            if (expressionResult == userAnswer) {
-                System.out.println("Correct!");
-
-                i++;
-            } else {
-                String message = """
-                        '%d' is wrong answer ;(. Correct answer was '%d'.
-                        Let's try again, %s!
-                        """.formatted(userAnswer, expressionResult, name);
-                System.out.println(message);
-
-                System.exit(0);
-            }
+            i = Engine.getCounterIfCorrectAnswer(expressionResult, userAnswer, name, i);
         }
 
         Cli.congratulation(name);
@@ -51,20 +38,20 @@ public class CalcGame {
         return resString.toString();
     }
 
-    private static int getExpressionResult(String expression) {
+    private static String getExpressionResult(String expression) {
         String[] tokens = expression.split(" ");
 
         return switch (tokens[1]) {
             case "+" ->
-                    Integer.parseInt(tokens[0]) + Integer.parseInt(tokens[2]);
+                    Integer.toString(Integer.parseInt(tokens[0]) + Integer.parseInt(tokens[2]));
             case "-" ->
-                    Integer.parseInt(tokens[0]) - Integer.parseInt(tokens[2]);
+                    Integer.toString(Integer.parseInt(tokens[0]) - Integer.parseInt(tokens[2]));
             default ->
-                    Integer.parseInt(tokens[0]) * Integer.parseInt(tokens[2]);
+                    Integer.toString(Integer.parseInt(tokens[0]) * Integer.parseInt(tokens[2]));
         };
     }
 
-    private static int getUserAnswerByExpression(String expression) {
+    private static String getUserAnswerByExpression(String expression) {
         String message = """
             Question: %s
             Your answer:\s""".formatted(expression);
@@ -72,6 +59,6 @@ public class CalcGame {
         System.out.print(message);
 
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        return Integer.toString(scanner.nextInt());
     }
 }
