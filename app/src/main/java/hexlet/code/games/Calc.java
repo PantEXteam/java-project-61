@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
-public class CalcGame {
+public class Calc {
     public static void start() {
         String name = Engine.getUserName("What is the result of the expression?");
 

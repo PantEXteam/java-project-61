@@ -6,7 +6,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class IsEvenGame {
+public class IsEven {
     public static void start() {
         String name = Engine.getUserName("Answer 'yes' if the number is even, otherwise answer 'no'.");
 

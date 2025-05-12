@@ -1,7 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.IsEvenGame;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ public class App {
             "1 - Greet",
             "2 - Even",
             "3 - Calc",
+            "4 - GCD",
             "0 - Exit",
     };
 
@@ -23,11 +23,15 @@ public class App {
 
                 break;
             case 2:
-                IsEvenGame.start();
+                IsEven.start();
 
                 break;
             case 3:
-                CalcGame.start();
+                Calc.start();
+
+                break;
+            case 4:
+                GCD.start();
 
                 break;
             default:
