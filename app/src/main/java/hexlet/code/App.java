@@ -11,6 +11,7 @@ public class App {
             "3 - Calc",
             "4 - GCD",
             "5 - Progression",
+            "6 - Prime",
             "0 - Exit",
     };
 
@@ -37,6 +38,10 @@ public class App {
                 break;
             case 5:
                 Progression.start();
+
+                break;
+            case 6:
+                Prime.start();
 
                 break;
             default:
