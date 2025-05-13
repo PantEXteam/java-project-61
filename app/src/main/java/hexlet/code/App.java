@@ -10,6 +10,7 @@ public class App {
             "2 - Even",
             "3 - Calc",
             "4 - GCD",
+            "5 - Progression",
             "0 - Exit",
     };
 
@@ -32,6 +33,10 @@ public class App {
                 break;
             case 4:
                 GCD.start();
+
+                break;
+            case 5:
+                Progression.start();
 
                 break;
             default:
